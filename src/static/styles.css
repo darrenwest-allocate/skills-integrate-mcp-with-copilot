@@ -60,14 +60,30 @@ header h1 {
 
 main {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: 30px;
   justify-content: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#signup-container {
+  order: 1;
+}
+
+#activities-container {
+  order: 2;
+}
+
+#activities-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
 }
 
 @media (min-width: 768px) {
-  main {
-    grid-template-columns: 2fr 1fr;
+  #activities-list {
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   }
 }
 
@@ -78,7 +94,11 @@ section {
   box-shadow: 0 2px 5px rgba(50, 205, 50, 0.1);
   border: 1px solid rgba(50, 205, 50, 0.2);
   width: 100%;
+}
+
+#signup-container {
   max-width: 500px;
+  margin: 0 auto;
 }
 
 section h3 {
@@ -159,6 +179,32 @@ section h3 {
 .participants-section p {
   color: #777;
   font-style: italic;
+}
+
+/* Activity actions styling */
+.activity-actions {
+  margin-top: 15px;
+  padding-top: 12px;
+  border-top: 1px dashed #ccc;
+  text-align: center;
+}
+
+.register-btn {
+  background: linear-gradient(135deg, #32CD32, #00FF00);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 4px rgba(50, 205, 50, 0.3);
+}
+
+.register-btn:hover {
+  background: linear-gradient(135deg, #228B22, #32CD32);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(50, 205, 50, 0.4);
 }
 
 .form-group {
@@ -285,5 +331,22 @@ footer {
     width: 60px;
     height: 60px;
     opacity: 0.1;
+  }
+  
+  #activities-list {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .activity-card {
+    margin-bottom: 10px;
+  }
+  
+  main {
+    gap: 20px;
+  }
+  
+  section {
+    padding: 15px;
   }
 }
